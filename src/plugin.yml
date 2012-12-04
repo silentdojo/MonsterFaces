@@ -1,0 +1,29 @@
+name: MonsterFaces
+version: 1.0.0001
+description: Shows all monsters with a fake hat on their head
+authors: [meiskam, silentdojo]
+
+main: com.incraftion.monsterfaces.MonsterFaces
+database: false
+depend: [ProtocolLib, PlayerHeads]
+
+commands:
+  FakeHat:
+    description: used for config manipulation
+    
+permissions:
+  fakehat:
+    description: Gives all FakeHat permissions
+    children:
+      fakehat.config: true
+  fakehat.config:
+    description: Allows user to edit, save, or reload configs
+    children:
+      fakehat.config.get: true
+      fakehat.config.set: true
+  fakehat.config.get:
+    description: Allows user to get configs
+    default: op
+  fakehat.config.set:
+    description: Allows user to set or reload configs
+    default: op
