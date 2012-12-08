@@ -1,5 +1,5 @@
 name: MonsterFaces
-version: 1.0.0003
+version: 1.0.0004
 description: Shows all monsters with a fake hat on their head
 authors: [meiskam, silentdojo]
 
@@ -8,22 +8,22 @@ database: false
 depend: [ProtocolLib, PlayerHeads]
 
 commands:
-  FakeHat:
+  MonsterFaces:
     description: used for config manipulation
     
 permissions:
-  fakehat:
-    description: Gives all FakeHat permissions
+  monsterfaces:
+    description: Gives all MonsterFaces permissions
     children:
-      fakehat.config: true
-  fakehat.config:
+      monsterfaces.config: true
+  monsterfaces.config:
     description: Allows user to edit, save, or reload configs
     children:
-      fakehat.config.get: true
-      fakehat.config.set: true
-  fakehat.config.get:
+      monsterfaces.config.get: true
+      monsterfaces.config.set: true
+  monsterfaces.config.get:
     description: Allows user to get configs
     default: op
-  fakehat.config.set:
+  monsterfaces.config.set:
     description: Allows user to set or reload configs
     default: op

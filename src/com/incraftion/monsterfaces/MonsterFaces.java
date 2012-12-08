@@ -68,9 +68,9 @@ public class MonsterFaces extends JavaPlugin {
 						sender.sendMessage("["+label+":config] Subcommands: get, set, reload");
 					} else {
 						if (args[1].equalsIgnoreCase("get") || args[1].equalsIgnoreCase("view")) {
-							if (sender.hasPermission("fakehat.config.get")) {
+							if (sender.hasPermission("monsterfaces.config.get")) {
 								if (args.length == 2) {
-									sender.sendMessage("["+label+":config:get] Config variables: Hat, Damage");
+									sender.sendMessage("["+label+":config:get] Config variable: Playername");
 								} else if (args.length == 3) {
 									sender.sendMessage("["+label+":config:get] "+args[2].toLowerCase()+": "+config.get(args[2].toLowerCase()));
 								} else {
@@ -80,16 +80,12 @@ public class MonsterFaces extends JavaPlugin {
 								sender.sendMessage("["+label+":config:get] You don't have permission to use that command");
 							}
 						} else if (args[1].equalsIgnoreCase("set")) {
-							if (sender.hasPermission("fakehat.config.set")) {
+							if (sender.hasPermission("monsterfaces.config.set")) {
 								if (args.length == 2 || args.length == 3) {
-									sender.sendMessage("["+label+":config:set] Config variables: Hat, Damage");
+									sender.sendMessage("["+label+":config:set] Config variables: Playername");
 								} else if (args.length == 4) {
-									if (args[2].equalsIgnoreCase("hat")) {
-										try {
-											config.set("hat", Integer.parseInt(args[3]));
-										} catch (NumberFormatException e) {
-											sender.sendMessage("["+label+":config:set] ERROR: Can not convert "+args[3].toLowerCase()+" to a number");
-										}
+									if (args[2].equalsIgnoreCase("playername")) {
+											config.set("playername", args[3]);
 									} else if (args[2].equalsIgnoreCase("damage")) {
 										try {
 											config.set("damage", Integer.parseInt(args[3]));
@@ -108,7 +104,7 @@ public class MonsterFaces extends JavaPlugin {
 								sender.sendMessage("["+label+":config:set] You don't have permission to use that command");
 							}
 						} else if (args[1].equalsIgnoreCase("reload")) {
-							if (sender.hasPermission("fakehat.config.set")) {
+							if (sender.hasPermission("monsterfaces.config.set")) {
 								reloadConfig();
 								initConfig(false);
 								sender.sendMessage("["+label+":config:reload] Config reloaded");

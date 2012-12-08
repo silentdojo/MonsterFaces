@@ -1,4 +1,4 @@
-FakeHat
+MonsteFaces
 ===========
 
-Bukkit Plugin - Displays everyone wearing a hat when they're really not
+Bukkit Plugin - Displays monsters wearing a Player-Head when they're really not

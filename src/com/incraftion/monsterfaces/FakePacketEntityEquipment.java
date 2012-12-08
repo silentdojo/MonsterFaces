@@ -25,10 +25,9 @@ public class FakePacketEntityEquipment implements Runnable {
 	@Override
 	public void run() {
 		PacketContainer packet = protocolManager.createPacket(0x05);
-		 
+	
 		try {
 			packet.getSpecificModifier(int.class).write(0, uid).write(1, 4);
-			//packet.getSpecificModifier(ItemStack.class).write(0, new ItemStack(hat, 1, damage));
 			packet.getItemModifier().write(0, new Skull(plugin.getConfig().getString("playername")).getItemStack());
 			protocolManager.sendServerPacket(player, packet);
 		} catch (Exception e) {
