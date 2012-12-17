@@ -89,7 +89,7 @@ public class MonsterFaces extends JavaPlugin {
 											config.set("playername", args[3]);
 									} else if (args[2].equalsIgnoreCase("rate")) {
 										try {
-											config.set("rate", Integer.parseInt(args[3]));
+											config.set("rate", Double.parseDouble(args[3]));
 										} catch (NumberFormatException e) {
 											sender.sendMessage("["+label+":config:set] ERROR: Can not convert "+args[3].toLowerCase()+" to a number");
 										}
