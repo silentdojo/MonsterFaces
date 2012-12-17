@@ -71,7 +71,7 @@ public class MonsterFaces extends JavaPlugin {
 						if (args[1].equalsIgnoreCase("get") || args[1].equalsIgnoreCase("view")) {
 							if (sender.hasPermission("monsterfaces.config.get")) {
 								if (args.length == 2) {
-									sender.sendMessage("["+label+":config:get] Config variable: Playername, Rate");
+									sender.sendMessage("["+label+":config:get] Config variable: Playernames, Rate");
 								} else if (args.length == 3) {
 									sender.sendMessage("["+label+":config:get] "+args[2].toLowerCase()+": "+config.get(args[2].toLowerCase()));
 								} else {
@@ -83,10 +83,10 @@ public class MonsterFaces extends JavaPlugin {
 						} else if (args[1].equalsIgnoreCase("set")) {
 							if (sender.hasPermission("monsterfaces.config.set")) {
 								if (args.length == 2 || args.length == 3) {
-									sender.sendMessage("["+label+":config:set] Config variables: Playername");
+									sender.sendMessage("["+label+":config:set] Config variables: Playernames, Rate");
 								} else if (args.length == 4) {
-									if (args[2].equalsIgnoreCase("playername")) {
-											config.set("playername", args[3]);
+									if (args[2].equalsIgnoreCase("playernames")) {
+											config.set("playernames", args[3]);
 									} else if (args[2].equalsIgnoreCase("rate")) {
 										try {
 											config.set("rate", Double.parseDouble(args[3]));
