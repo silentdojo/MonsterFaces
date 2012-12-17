@@ -18,6 +18,7 @@
 
 package com.incraftion.monsterfaces;
 
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,12 +47,17 @@ public class EntityEquipmentListener {
 			@Override
 			public void onPacketSending(PacketEvent event) {
 				PacketContainer packet = event.getPacket();
+				Random rand = new Random();
+				double num = rand.nextDouble();
+				double rate = 0.05;
+				rate = plugin.getConfig().getDouble("rate");
 				
 				try {
 					switch (event.getPacketID()) {
 					    
 					case 0x18:
-						if (packet.getSpecificModifier(int.class).size() >= 2 && (packet.getSpecificModifier(int.class).read(1) == 51) || (packet.getSpecificModifier(int.class).read(1) == 54)) {
+						if (num >= rate) { return; }
+						if (packet.getSpecificModifier(int.class).size() >= 2 && (packet.getSpecificModifier(int.class).read(1) == 54)) {
 							server.getScheduler().scheduleSyncDelayedTask(myPlugin, 
 									new FakePacketEntityEquipment(myPlugin, protocolManager, event.getPlayer(), packet.getSpecificModifier(int.class).read(0)) );
 						}

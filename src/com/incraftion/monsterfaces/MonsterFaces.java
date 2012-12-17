@@ -1,3 +1,4 @@
+package com.incraftion.monsterfaces;
 /* MonsterFaces - Bukkit plugin
  * Copyright (C) 2012 meiskam
  * 
@@ -16,7 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-package com.incraftion.monsterfaces;
+
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -70,7 +71,7 @@ public class MonsterFaces extends JavaPlugin {
 						if (args[1].equalsIgnoreCase("get") || args[1].equalsIgnoreCase("view")) {
 							if (sender.hasPermission("monsterfaces.config.get")) {
 								if (args.length == 2) {
-									sender.sendMessage("["+label+":config:get] Config variable: Playername");
+									sender.sendMessage("["+label+":config:get] Config variable: Playername, Rate");
 								} else if (args.length == 3) {
 									sender.sendMessage("["+label+":config:get] "+args[2].toLowerCase()+": "+config.get(args[2].toLowerCase()));
 								} else {
@@ -86,9 +87,9 @@ public class MonsterFaces extends JavaPlugin {
 								} else if (args.length == 4) {
 									if (args[2].equalsIgnoreCase("playername")) {
 											config.set("playername", args[3]);
-									} else if (args[2].equalsIgnoreCase("damage")) {
+									} else if (args[2].equalsIgnoreCase("rate")) {
 										try {
-											config.set("damage", Integer.parseInt(args[3]));
+											config.set("rate", Integer.parseInt(args[3]));
 										} catch (NumberFormatException e) {
 											sender.sendMessage("["+label+":config:set] ERROR: Can not convert "+args[3].toLowerCase()+" to a number");
 										}
