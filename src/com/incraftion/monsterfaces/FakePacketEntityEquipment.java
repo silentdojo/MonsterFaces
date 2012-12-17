@@ -1,5 +1,7 @@
 package com.incraftion.monsterfaces;
 
+import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 
 import org.bukkit.entity.Player;
@@ -25,10 +27,14 @@ public class FakePacketEntityEquipment implements Runnable {
 	@Override
 	public void run() {
 		PacketContainer packet = protocolManager.createPacket(0x05);
+		Random nrand = new Random();
+		int amt = plugin.getConfig().getStringList("playernames").size();
+		int prand = nrand.nextInt(amt);
+		List<String> playernames = plugin.getConfig().getStringList("playernames");
 	
 		try {
 			packet.getSpecificModifier(int.class).write(0, uid).write(1, 4);
-			packet.getItemModifier().write(0, new Skull(plugin.getConfig().getString("playername")).getItemStack());
+			packet.getItemModifier().write(0, new Skull(playernames.get(prand)).getItemStack());
 			protocolManager.sendServerPacket(player, packet);
 		} catch (Exception e) {
 			plugin.getLogger().log(Level.SEVERE, "Couldn't send fake EntityEquipment packet.", e);
