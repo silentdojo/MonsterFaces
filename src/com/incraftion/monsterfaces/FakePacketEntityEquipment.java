@@ -7,9 +7,7 @@ import java.util.logging.Level;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.bukkit.material.Skull;
 import org.bukkit.plugin.Plugin;
 
 import com.comphenix.protocol.ProtocolManager;
@@ -20,7 +18,6 @@ public class FakePacketEntityEquipment implements Runnable {
 	private ProtocolManager protocolManager;
 	private Player player;
 	private int uid;
-	private ItemStack skull;
 	
 	public FakePacketEntityEquipment(Plugin plugin, ProtocolManager protocolManager, Player player, int uid) {
 		this.plugin = plugin;
