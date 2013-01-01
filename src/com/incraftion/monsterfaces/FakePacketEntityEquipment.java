@@ -34,10 +34,14 @@ public class FakePacketEntityEquipment implements Runnable {
 		int prand = nrand.nextInt(amt);
 		List<String> playernames = plugin.getConfig().getStringList("playernames");
 		ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
-		((SkullMeta) skull.getItemMeta()).setOwner(playernames.get(prand));
+		String skullName = playernames.get(prand);
+		SkullMeta skullMeta = (SkullMeta) skull.getItemMeta();
+		skullMeta.setOwner(skullName);
+		skull.setItemMeta(skullMeta);
 		try {
 			packet.getSpecificModifier(int.class).write(0, uid).write(1, 4);
 			packet.getItemModifier().write(0, skull);
+			plugin.getLogger().info("Spawning dude#"+uid+" with "+((SkullMeta) skull.getItemMeta()).getOwner()+" skull");
 			protocolManager.sendServerPacket(player, packet);
 		} catch (Exception e) {
 			plugin.getLogger().log(Level.SEVERE, "Couldn't send fake EntityEquipment packet.", e);
