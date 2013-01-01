@@ -41,7 +41,7 @@ public class FakePacketEntityEquipment implements Runnable {
 		try {
 			packet.getSpecificModifier(int.class).write(0, uid).write(1, 4);
 			packet.getItemModifier().write(0, skull);
-			plugin.getLogger().info("Spawning dude#"+uid+" with "+((SkullMeta) skull.getItemMeta()).getOwner()+" skull");
+			//plugin.getLogger().info("Spawning dude#"+uid+" with "+((SkullMeta) skull.getItemMeta()).getOwner()+" skull");
 			protocolManager.sendServerPacket(player, packet);
 		} catch (Exception e) {
 			plugin.getLogger().log(Level.SEVERE, "Couldn't send fake EntityEquipment packet.", e);
