@@ -5,7 +5,7 @@ authors: [meiskam, silentdojo]
 
 main: com.incraftion.monsterfaces.MonsterFaces
 database: false
-depend: [ProtocolLib, PlayerHeads]
+depend: [ProtocolLib]
 
 commands:
   MonsterFaces:
